@@ -1,0 +1,25 @@
+{
+  "name": "allons-y-sso",
+  "version": "1.0.0",
+  "description": "Extend the allons-y-community module to add a SSO system.",
+  "license": "MIT",
+  "homepage": "https://allons-y.io",
+  "author": "CodeCorico <hello@codecorico.com>",
+  "bugs": "https://github.com/CodeCorico/allons-y-sso/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CodeCorico/allons-y-sso.git"
+  },
+  "engines": {
+    "node": ">=4.1",
+    "npm": ">=3.2"
+  },
+  "devDependencies": {
+    "allons-y-dev-chore": "^1.0.0"
+  },
+  "dependencies": {
+    "allons-y-community": "^1.0.6",
+    "passport": "^0.3.2",
+    "passport-saml": "^0.15.0"
+  }
+}

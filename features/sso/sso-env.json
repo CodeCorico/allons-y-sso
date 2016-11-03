@@ -1,0 +1,25 @@
+{
+  "env": [{
+    "type": "input",
+    "name": "SSO_ENABLE",
+    "message": "Enable the SSO:",
+    "default": true
+  }, {
+    "type": "input",
+    "name": "SSO_SIGNUP_DOMAINS",
+    "message": "Limit the non-SSO signup to these email domains (separated by ';'):",
+    "when": "SSO_ENABLE=true"
+  }, {
+    "type": "input",
+    "name": "SSO_SERVICE_URL",
+    "message": "URL of the SSO service:",
+    "default": "https://sso.localhost/adfs/ls/",
+    "when": "SSO_ENABLE=true"
+  }, {
+    "type": "input",
+    "name": "SSO_SERVICE_LOGOUT_URL",
+    "message": "URL of the SSO service logout:",
+    "default": "https://sso.localhost/adfs/ls/?wa=wsignout1.0",
+    "when": "SSO_ENABLE=true"
+  }]
+}

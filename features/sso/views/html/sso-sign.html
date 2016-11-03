@@ -1,0 +1,24 @@
+{{#inject sso-sign-before /}}
+
+<section class="sso-sign {{hideSB}}">
+
+  <p>{{_('Use your professional account to signin to the Platform by clicking the button below.')}}</p>
+  <p>
+    {{_('This is based on SSO (Single Sign-On), using the same login as for your professional computer. It is available for all users registered in Active Directory.')}}<br />
+    {{_('Else click on "Invited User".')}}
+  </p>
+  {{#inject sso-sign-description /}}
+
+  <button class="sso-sign-signon" on-click="goSSO"><img src="/public/sso/sso.png" alt="{{_('Single Sign On')}}" /></button>
+
+  <ul>
+    <li>
+      <button class="sso-sign-linkbutton" on-click="togglesso">
+        {{_('I am an invited user')}}
+      </button>
+    </li>
+    {{#inject sso-sign-buttons /}}
+  </ul>
+
+  {{#inject sso-sign-after /}}
+</section>
