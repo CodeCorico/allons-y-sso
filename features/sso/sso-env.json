@@ -6,8 +6,13 @@
     "default": true
   }, {
     "type": "input",
-    "name": "SSO_SIGNUP_DOMAINS",
-    "message": "Limit the non-SSO signup to these email domains (separated by ';'):",
+    "name": "SSO_PREVENT_SIGNUP_DOMAINS",
+    "message": "Prevent the non-SSO signup from these email domains (separated by ';'):",
+    "when": "SSO_ENABLE=true"
+  }, {
+    "type": "input",
+    "name": "SSO_DIRECT_GROUPS",
+    "message": "Signup a SSO member in groups (urls separated by ';'):",
     "when": "SSO_ENABLE=true"
   }, {
     "type": "input",
