@@ -100,10 +100,10 @@ module.exports = function() {
         return _providerMetadatXML;
       };
 
-      this.signUser = function(req, res, session, user, callback) {
+      this.signUser = function(req, res, user, callback) {
         var UserModel = DependencyInjection.injector.service.get('UserModel');
 
-        UserModel.createAndSignin(req, res, session, user, callback);
+        UserModel.createAndSignin(req, res, user, callback);
       };
 
       this.logout = function(req, callback) {

@@ -34,7 +34,7 @@ module.exports = [{
       return $res.redirect('/');
     }
 
-    SSOService.authenticate($req, $res, $next, null, function(err, user) {
+    SSOService.authenticate($req, $res, $next, function(err, user) {
       if (err || !user || !user.email) {
         return $next(err || (!user.email ? 'no email' : 'no user'));
       }
@@ -44,7 +44,7 @@ module.exports = [{
           return $next(err);
         }
 
-        SSOService.signUser($req, $res, $req.signedCookies.session, user, function() {
+        SSOService.signUser($req, $res, user, function() {
           $res.sendFile(path.resolve(__dirname, '../views/html/sso-callback.html'));
         });
       });
