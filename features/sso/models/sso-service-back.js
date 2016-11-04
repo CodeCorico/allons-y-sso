@@ -152,8 +152,7 @@ module.exports = function() {
 
                 group.addMember(user, true, function() {
                   GroupModel.refreshGroup(group);
-
-                  _this.refreshUsersGroupMembers(group.id);
+                  UserModel.refreshUsersGroupMembers(group.id);
 
                   nextGroup();
                 });
