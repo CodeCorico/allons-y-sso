@@ -131,7 +131,36 @@ module.exports = function() {
             signed: true
           });
 
-          callback();
+          if (!process.env.SSO_DIRECT_GROUPS) {
+            return callback();
+          }
+
+          var async = require('async'),
+              GroupModel = DependencyInjection.injector.model.get('GroupModel'),
+              groupsUrls = process.env.SSO_DIRECT_GROUPS.split(';');
+
+          async.eachSeries(groupsUrls, function(groupUrl, nextGroup) {
+
+            GroupModel
+              .findOne({
+                url: groupUrl
+              })
+              .exec(function(err, group) {
+                if (err || !group) {
+                  return nextGroup();
+                }
+
+                group.addMember(user, true, function() {
+                  GroupModel.refreshGroup(group);
+
+                  _this.refreshUsersGroupMembers(group.id);
+
+                  nextGroup();
+                });
+              });
+          }, function() {
+            callback();
+          });
         }, true);
       };
 
