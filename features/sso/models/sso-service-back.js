@@ -64,7 +64,7 @@ module.exports = function() {
           cert: _destinationPvk,
           acceptedClockSkewMs: 3600,
           callbackUrl: $serverUrl + '/api/sso/callback',
-          logoutCallbackUrl: $serverUrl + '/api/sso/callback-logout',
+          logoutCallbackUrl: $serverUrl + '/api/sso/logout',
           authnRequestsSigned: false,
           wantAssertionsSigned: false,
           disableRequestedAuthnContext: true
@@ -103,7 +103,36 @@ module.exports = function() {
       this.signUser = function(req, res, user, callback) {
         var UserModel = DependencyInjection.injector.service.get('UserModel');
 
-        UserModel.createAndSignin(req, res, user, callback);
+        user.firstname = user.firstName || '';
+        user.lastname = user.lastName || '';
+        user.username = user.userName || '';
+
+        UserModel.createUser(user, function(err, user, session) {
+          if (err && err == 'exists') {
+            return UserModel.signin(user.email, null, function(err, user, session) {
+              if (err || !session) {
+                return callback();
+              }
+
+              res.cookie('session', session.session, {
+                maxAge: session.duration,
+                signed: true
+              });
+
+              callback();
+            }, true);
+          }
+          else if (err || !session) {
+            return callback();
+          }
+
+          res.cookie('session', session.session, {
+            maxAge: session.duration,
+            signed: true
+          });
+
+          callback();
+        }, true);
       };
 
       this.logout = function(req, callback) {
