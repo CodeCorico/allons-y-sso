@@ -107,7 +107,7 @@ module.exports = function() {
         user.lastname = user.lastName || '';
         user.username = user.userName || '';
 
-        UserModel.createUser(user, function(err, user, session) {
+        UserModel.createUser(user, function(err, newUser, session) {
           if (err && err == 'exists') {
             return UserModel.signin(user.email, null, function(err, user, session) {
               if (err || !session) {
@@ -150,7 +150,7 @@ module.exports = function() {
                   return nextGroup();
                 }
 
-                group.addMember(user, true, function() {
+                group.addMember(newUser, true, function() {
                   GroupModel.refreshGroup(group);
                   UserModel.refreshUsersGroupMembers(group.id);
 
