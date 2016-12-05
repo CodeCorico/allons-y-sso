@@ -3,8 +3,6 @@
 # Allons-y-sso
 
 [![Join the chat at https://gitter.im/CodeCorico/allons-y](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/CodeCorico/allons-y?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Issue Stats](http://issuestats.com/github/codecorico/allons-y-sso/badge/issue)](http://issuestats.com/github/codecorico/allons-y)
-[![Issue Stats](http://issuestats.com/github/codecorico/allons-y-sso/badge/pr)](http://issuestats.com/github/codecorico/allons-y)
 [![npm version](https://badge.fury.io/js/allons-y-sso.svg)](https://badge.fury.io/js/allons-y-sso)
 
 Allons-y-sso is an [allons-y](https://github.com/CodeCorico/allons-y) module that extends the [allons-y-community](https://github.com/CodeCorico/allons-y-community) module to add a [SSO](https://en.wikipedia.org/wiki/Single_sign-on) system.
