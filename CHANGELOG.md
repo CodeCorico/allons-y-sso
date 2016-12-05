@@ -1,3 +1,9 @@
+<a name="1.0.2"></a>
+# [1.0.2](https://github.com/CodeCorico/allons-y-sso/compare/1.0.1...1.0.2) (2016-12-05)
+
+### Features
+* **sso:** return to the active page after the sso callback [#cd3b7c6](https://github.com/CodeCorico/allons-y-sso/commit/cd3b7c6)
+
 <a name="1.0.1"></a>
 # [1.0.1](https://github.com/CodeCorico/allons-y-sso/compare/1.0.0...1.0.1) (2016-11-06)
 
