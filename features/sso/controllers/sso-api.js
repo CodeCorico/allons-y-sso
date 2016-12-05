@@ -38,7 +38,12 @@ module.exports = [{
         }
 
         SSOService.signUser($req, $res, user, function() {
-          $res.redirect('/');
+          var cookies = $req.cookies || {},
+              referer = cookies['sso.referer'] || '/';
+
+          $res.clearCookie('sso.referer');
+
+          $res.redirect(referer);
         });
       });
     });

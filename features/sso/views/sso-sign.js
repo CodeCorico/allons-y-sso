@@ -16,6 +16,11 @@
     SsoSignContext.parentRequire.set('cls', 'hide');
 
     SsoSignContext.on('goSSO', function() {
+      window.Cookies.set('sso.referer', window.location.href, {
+        expires: 1,
+        path: '/'
+      });
+
       window.location.replace('/api/sso/signin');
     });
 
