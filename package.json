@@ -18,7 +18,7 @@
     "allons-y-dev-chore": "^1.0.0"
   },
   "dependencies": {
-    "allons-y-community": "^1.0.12",
+    "allons-y-community": "^1.1.0",
     "async": "^2.1.2",
     "fs-extra": "^1.0.0",
     "passport": "^0.3.2",
