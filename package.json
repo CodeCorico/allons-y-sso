@@ -22,6 +22,12 @@
     "async": "^2.1.2",
     "fs-extra": "^1.0.0",
     "passport": "^0.3.2",
-    "passport-saml": "^0.15.0"
-  }
+    "passport-saml": "^0.20.0",
+    "snyk": "^1.73.0"
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
